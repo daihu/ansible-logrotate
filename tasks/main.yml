@@ -3,6 +3,8 @@
   package:
     name: logrotate
     state: present
+    update_cache: yes
+    cache_valid_time: "{{apt_cache_valid_time | default (3600)}}"
   when: logrotate_scripts is defined and logrotate_scripts|length > 0
 
 - name: nickhammond.logrotate | Setup logrotate.d scripts
